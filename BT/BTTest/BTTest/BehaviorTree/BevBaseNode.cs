@@ -8,7 +8,7 @@ namespace BehaviorTreeLib
 				public BevCondition Condition;
 				private static long m_IDCount;
 				private long m_ID;
-
+                
 				public BevBaseNode ()
 				{
 						m_ID = m_IDCount++;
