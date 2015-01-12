@@ -25,7 +25,7 @@ namespace BehaviorTreeLib
 										result |= link_condition.Judge ();
 										break;
 								case BevConditionOperator.NOTHING:
-										Debug.LogError ("Operator is Nothing");
+
 										break;
 								}
 						}
@@ -34,9 +34,7 @@ namespace BehaviorTreeLib
 
 				public BevCondition (BevConditionHandleDelegate ConditionHandle)
 				{
-						if (ConditionHandle == null) {
-								Debug.LogError ("ConditionHandle was null");
-						}
+                    if (ConditionHandle == null) throw new System.ArgumentNullException();
 						m_LinkCondition = new List<BevCondition> ();
 						m_Operator = BevConditionOperator.NOTHING;
 						m_ConditionHandle = ConditionHandle;

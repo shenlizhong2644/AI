@@ -41,6 +41,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BehaviorTree\BevAction.cs" />
+    <Compile Include="BehaviorTree\BevBaseNode.cs" />
+    <Compile Include="BehaviorTree\BevCondition.cs" />
+    <Compile Include="BehaviorTree\BevParallel.cs" />
+    <Compile Include="BehaviorTree\BevSelector.cs" />
+    <Compile Include="BehaviorTree\BevSequence.cs" />
+    <Compile Include="BehaviorTree\BTDefinition.cs" />
+    <Compile Include="BehaviorTree\IBevNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
