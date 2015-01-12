@@ -1,7 +1,6 @@
-using UnityEngine;
 using System.Collections;
 
-namespace SlgGame.AI
+namespace BehaviorTreeLib
 {
     public class BevAction : BevBaseNode
     {

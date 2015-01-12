@@ -1,8 +1,7 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
-namespace SlgGame.AI
+namespace BehaviorTreeLib
 {
 		public class BevCondition
 		{
