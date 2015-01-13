@@ -4,3 +4,9 @@ E:\Github\Ai\AI\BT\BTTest\BTTest\bin\Debug\BTTest.exe
 E:\Github\Ai\AI\BT\BTTest\BTTest\bin\Debug\BTTest.pdb
 E:\Github\Ai\AI\BT\BTTest\BTTest\obj\Debug\BTTest.exe
 E:\Github\Ai\AI\BT\BTTest\BTTest\obj\Debug\BTTest.pdb
+E:\Github\AI\BT\BTTest\BTTest\bin\Debug\BTTest.exe.config
+E:\Github\AI\BT\BTTest\BTTest\obj\Debug\BTTest.exe
+E:\Github\AI\BT\BTTest\BTTest\obj\Debug\BTTest.pdb
+E:\Github\AI\BT\BTTest\BTTest\obj\Debug\BTTest.csprojResolveAssemblyReference.cache
+E:\Github\AI\BT\BTTest\BTTest\bin\Debug\BTTest.exe
+E:\Github\AI\BT\BTTest\BTTest\bin\Debug\BTTest.pdb

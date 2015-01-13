@@ -48,7 +48,6 @@
     <Compile Include="BehaviorTree\BevSelector.cs" />
     <Compile Include="BehaviorTree\BevSequence.cs" />
     <Compile Include="BehaviorTree\BTDefinition.cs" />
-    <Compile Include="BehaviorTree\IBevNode.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
