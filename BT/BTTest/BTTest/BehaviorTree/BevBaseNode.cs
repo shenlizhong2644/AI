@@ -4,7 +4,6 @@ namespace BehaviorTreeLib
 {
     public class BevBaseNode
     {
-        protected BevNodeType m_Type;
         public BevCondition Condition;
         private static long m_IDCount;
         private long m_ID;
@@ -24,13 +23,6 @@ namespace BehaviorTreeLib
             return Condition == null ? true : Condition.Judge();
         }
 
-        public BevNodeType NodeType
-        {
-            get
-            {
-                return m_Type;
-            }
-        }
 
     }
 }

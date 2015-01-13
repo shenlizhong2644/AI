@@ -6,12 +6,10 @@ namespace BehaviorTreeLib
 		public class BevSequence:BevBaseNode
 		{
 				private List<BevBaseNode> m_Childs;
-				private BevNodeType m_Type;
 
 				public BevSequence ():base()
 				{
 						m_Childs = new List<BevBaseNode> ();
-						m_Type = BevNodeType.BEV_NODE_SEQUENCE;
 				}
 
 				public void AddChilds (params BevBaseNode[] childs)

@@ -5,14 +5,12 @@ namespace BehaviorTreeLib
 {
     public class BevSelector : BevBaseNode
     {
-        private BevNodeType m_Type;
         public List<BevBaseNode> m_Childs;
 
         public BevSelector()
         {
             m_Childs = new List<BevBaseNode>();
             Condition = null;
-            m_Type = BevNodeType.BEV_NODE_SELECTOR;
         }
 
         public void AddChild(BevBaseNode child)

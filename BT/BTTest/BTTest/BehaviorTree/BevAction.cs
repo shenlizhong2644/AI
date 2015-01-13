@@ -11,7 +11,6 @@ namespace BehaviorTreeLib
         public BevAction(params BevActionHandleDelegate[] ActionHandle)
             : base()
         {
-            m_Type = BevNodeType.BEV_NODE_ACTION;
             if (ActionHandle != null)
             {
                 foreach (BevActionHandleDelegate action in ActionHandle)

@@ -6,13 +6,11 @@ namespace BehaviorTreeLib
     public class BevParallel : BevBaseNode
     {
         private List<BevBaseNode> m_Childs;
-        private BevNodeType m_Type;
 
         public BevParallel()
             : base()
         {
             m_Childs = new List<BevBaseNode>();
-            m_Type = BevNodeType.BEV_NODE_PARALLEL;
         }
 
         public void AddChild(BevBaseNode child)
