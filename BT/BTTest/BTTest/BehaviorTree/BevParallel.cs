@@ -28,15 +28,15 @@ namespace BehaviorTreeLib
             m_Childs.Remove(child);
         }
 
-        public override bool Tick()
+        public override BevStatus Tick()
         {
             if (!JudgeCondition())
-                return false;
+                return BevStatus.FAILURE;
             foreach (BevBaseNode child in m_Childs)
             {
                 child.Tick();
             }
-            return true;
+            return BevStatus.SUCCESS;
         }
 
     }

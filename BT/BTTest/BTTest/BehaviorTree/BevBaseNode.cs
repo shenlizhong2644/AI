@@ -13,9 +13,9 @@ namespace BehaviorTreeLib
             m_ID = m_IDCount++;
         }
 
-        public virtual bool Tick()
+        public virtual BevStatus Tick()
         {
-            return true;
+            return BevStatus.FAILURE;
         }
 
         protected bool JudgeCondition()

@@ -9,9 +9,10 @@ namespace BehaviorTreeLib
 		NOTHING
 	}
 
-	public enum Status
+	public enum BevStatus
 	{
 		RUNNING,
-		COMPLETED
+		SUCCESS,
+        FAILURE
 	}
 }

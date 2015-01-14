@@ -1,11 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-
+using System;
 namespace BehaviorTreeLib
 {
 		public class BevCondition
 		{
-				
 				public delegate bool BevConditionHandleDelegate ();
 
 				private List<BevCondition> m_LinkCondition;
@@ -25,8 +24,7 @@ namespace BehaviorTreeLib
 										result |= link_condition.Judge ();
 										break;
 								case BevConditionOperator.NOTHING:
-
-										break;
+                                        throw new System.InvalidOperationException();
 								}
 						}
 						return result;

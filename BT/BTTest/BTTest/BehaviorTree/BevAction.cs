@@ -1,38 +1,27 @@
 using System.Collections;
-
+using System;
 namespace BehaviorTreeLib
 {
     public class BevAction : BevBaseNode
     {
         public delegate void BevActionHandleDelegate();
 
-        private event BevActionHandleDelegate m_ActionHandle;
+        private Func<BevStatus> m_ActionHandle;
 
-        public BevAction(params BevActionHandleDelegate[] ActionHandle)
+        public BevAction(Func<BevStatus> ActionHandle)
             : base()
         {
             if (ActionHandle != null)
             {
-                foreach (BevActionHandleDelegate action in ActionHandle)
-                {
-                    m_ActionHandle += action;
-                }
+                m_ActionHandle = ActionHandle;
             }
         }
 
-        public void AddChilds(params BevActionHandleDelegate[] childs)
+        public override BevStatus Tick()
         {
-            foreach (BevActionHandleDelegate action in childs)
-            {
-                m_ActionHandle += action;
-            }
-        }
-
-        public override bool Tick()
-        {
-            if (!JudgeCondition()) return false;
-            if (m_ActionHandle != null) m_ActionHandle();
-            return true;
+            if (!JudgeCondition()) return BevStatus.FAILURE;
+            if (m_ActionHandle != null) return m_ActionHandle.Invoke();
+            return BevStatus.FAILURE;
         }
     }
 }
