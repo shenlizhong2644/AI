@@ -51,8 +51,8 @@
     <Compile Include="BehaviorTree\BTDefinition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Utility\BlackBoard.cs" />
-    <Compile Include="Utility\Tick.cs" />
+    <Compile Include="BehaviorTree\Utility\Blackboard.cs" />
+    <Compile Include="BehaviorTree\Utility\Tick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

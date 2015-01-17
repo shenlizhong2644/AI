@@ -8,6 +8,11 @@ namespace BehaviorTreeLib
         private static long m_IDCount;
         private long m_ID;
 
+        public long ID
+        {
+            get { return m_ID; }
+        }
+
         public BevBaseNode()
         {
             m_ID = m_IDCount++;

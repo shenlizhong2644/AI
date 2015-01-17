@@ -36,6 +36,7 @@ namespace BehaviorTreeLib
 
         public override BevStatus Execute(Tick<T> t)
         {
+            t.m_CurNode = this;
             if (!JudgeCondition(t))
                 return BevStatus.FAILURE;
             foreach (BevBaseNode<T> child in m_Childs)

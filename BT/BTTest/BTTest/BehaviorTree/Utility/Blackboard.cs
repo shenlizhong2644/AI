@@ -8,7 +8,11 @@ namespace BehaviorTreeLib
         private Dictionary<string, Object> m_GlobalMemory;
         private Dictionary<string, Object> m_TreeMemory;
         private Dictionary<string, Object> m_NodeMemory;
-        public void Initialize()
+        public Blackboard()
+        {
+            _initialize();
+        }
+        private void _initialize()
         {
             m_GlobalMemory = new Dictionary<string, Object>();
             m_TreeMemory = new Dictionary<string, Object>();
@@ -28,15 +32,18 @@ namespace BehaviorTreeLib
         }
         public T GetNodeMemory<T>(string key, string treeID, string nodeID)
         {
-            return (T)m_NodeMemory[key + "_" + treeID + "_" + nodeID];
+            Object result = null;
+            return m_NodeMemory.TryGetValue(key + "_" + treeID + "_" + nodeID, out result) ? (T)result : default(T);
         }
         public T GetTreeMemory<T>(string key, string treeID)
         {
-            return (T)m_TreeMemory[key + "_" + treeID];
+            Object result = null;
+            return m_TreeMemory.TryGetValue(key + "_" + treeID, out result) ? (T)result : default(T);
         }
-        public T GetNodeMemory<T>(string key)
+        public T GetGlobalMemory<T>(string key)
         {
-            return (T)m_GlobalMemory[key];
+            Object result = null;
+            return m_GlobalMemory.TryGetValue(key, out result) ? (T)result : default(T);
         }
     }
 }

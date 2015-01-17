@@ -8,11 +8,13 @@ namespace BTTest
 {
     class Program
     {
+        static TestClass xiaoming;
+        static TestClass harrison;
         static void Main(string[] args)
         {
-            TestClass xiaoming = new TestClass();
+            xiaoming = new TestClass();
             xiaoming.Name = "xiaoming";
-            TestClass harrison = new TestClass();
+            harrison = new TestClass();
             harrison.Name = "harrison";
 
             BehaviorTreeLib.BehaviorTree<TestClass> bt = new BehaviorTreeLib.BehaviorTree<TestClass>();
@@ -21,14 +23,16 @@ namespace BTTest
 
             while (true)
             {
-                bt.Tick(xiaoming, blackBoard);
-                bt.Tick(harrison, blackBoard);
+                bt.Tick(null, blackBoard);
             }
 
         }
         public static BehaviorTreeLib.BevStatus Say(BehaviorTreeLib.Tick<TestClass> t)
         {
-            System.Console.WriteLine(t.m_Target.Name);
+            int str=0;
+            str=t.m_BlackBoard.GetNodeMemory<int>("value", t.m_Tree.ID.ToString(),t.m_CurNode.ID.ToString());
+            System.Console.WriteLine(str);
+            t.m_BlackBoard.SetNodeMemory<int>("value", t.m_Tree.ID.ToString(),t.m_CurNode.ID.ToString(), ++str);
             return BehaviorTreeLib.BevStatus.SUCCESS;
         }
     }

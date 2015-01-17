@@ -28,6 +28,7 @@ namespace BehaviorTreeLib
             m_Tick = new Tick<T>();
             m_Tick.m_Target = target;
             m_Tick.m_BlackBoard = blackBoard;
+            m_Tick.m_Tree = this;
             m_Root.Execute(m_Tick);
 
         }

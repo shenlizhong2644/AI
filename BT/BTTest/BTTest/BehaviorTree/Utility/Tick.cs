@@ -12,6 +12,7 @@ namespace BehaviorTreeLib
         public T m_Target;
         public Blackboard m_BlackBoard;
         public List<BevBaseNode<T>> m_NodeList;
+        public BevBaseNode<T> m_CurNode;
         public Tick()
         {
             _initialize();
