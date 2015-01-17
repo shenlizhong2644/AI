@@ -5,11 +5,11 @@ namespace BehaviorTreeLib
 {
     public class BehaviorTree<T>
     {
-        private int m_ID;
-        private static int m_MaxID = 0;
+        private long m_ID;
+        private static long m_MaxID = 0;
         public BevBaseNode<T> m_Root;
         private Tick<T> m_Tick;
-        public int ID
+        public long ID
         {
             get { return m_ID; }
         }
