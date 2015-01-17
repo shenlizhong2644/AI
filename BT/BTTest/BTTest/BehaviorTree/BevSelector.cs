@@ -3,46 +3,44 @@ using System.Collections.Generic;
 
 namespace BehaviorTreeLib
 {
-    public class BevSelector : BevBaseNode
+    public class BevSelector<T> : BevBaseNode<T>
     {
-        public List<BevBaseNode> m_Childs;
+        public List<BevBaseNode<T>> m_Childs;
 
         public BevSelector()
         {
-            m_Childs = new List<BevBaseNode>();
+            m_Childs = new List<BevBaseNode<T>>();
             Condition = null;
         }
+        public BevSelector(params BevBaseNode<T>[] childs)
+        {
+            m_Childs = new List<BevBaseNode<T>>();
+            Condition = null;
+            m_Childs.AddRange(childs);
+        }
 
-        public void AddChild(BevBaseNode child)
+        public void AddChild(BevBaseNode<T> child)
         {
             m_Childs.Add(child);
         }
 
-        public void AddChilds(params BevBaseNode[] childs)
+        public void AddChilds(params BevBaseNode<T>[] childs)
         {
-            //BevBaseNode[] nodes = childs ;
             m_Childs.AddRange(childs);
         }
 
-        /*public void AddChilds (params object[] childs)
-        {
-                foreach (BevBaseNode node in childs)
-                        Debug.Log (node);
-                m_Childs.AddRange (childs as BevBaseNode[]);
-        }*/
-
-        public void RemoveChild(BevBaseNode child)
+        public void RemoveChild(BevBaseNode<T> child)
         {
             m_Childs.Remove(child);
         }
 
-        public override BevStatus Tick()
+        public override BevStatus Execute(Tick<T> t)
         {
-            if (!JudgeCondition())
+            if (!JudgeCondition(t))
                 return BevStatus.FAILURE;
-            foreach (BevBaseNode child in m_Childs)
+            foreach (BevBaseNode<T> child in m_Childs)
             {
-                if (BevStatus.SUCCESS == child.Tick())
+                if (BevStatus.SUCCESS == child.Execute(t))
                 {
                     return BevStatus.SUCCESS;
                 }

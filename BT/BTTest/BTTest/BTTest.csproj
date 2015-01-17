@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BehaviorTree\BehaviorTree.cs" />
     <Compile Include="BehaviorTree\BevAction.cs" />
     <Compile Include="BehaviorTree\BevBaseNode.cs" />
     <Compile Include="BehaviorTree\BevCondition.cs" />
@@ -50,6 +51,8 @@
     <Compile Include="BehaviorTree\BTDefinition.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Utility\BlackBoard.cs" />
+    <Compile Include="Utility\Tick.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

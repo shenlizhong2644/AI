@@ -2,13 +2,12 @@ using System.Collections;
 using System;
 namespace BehaviorTreeLib
 {
-    public class BevAction : BevBaseNode
+    public class BevAction<T> : BevBaseNode<T>
     {
-        public delegate void BevActionHandleDelegate();
 
-        private Func<BevStatus> m_ActionHandle;
+        private Func<Tick<T>, BevStatus> m_ActionHandle;
 
-        public BevAction(Func<BevStatus> ActionHandle)
+        public BevAction(Func<Tick<T>, BevStatus> ActionHandle)
             : base()
         {
             if (ActionHandle != null)
@@ -17,10 +16,10 @@ namespace BehaviorTreeLib
             }
         }
 
-        public override BevStatus Tick()
+        public override BevStatus Execute(Tick<T> t)
         {
-            if (!JudgeCondition()) return BevStatus.FAILURE;
-            if (m_ActionHandle != null) return m_ActionHandle.Invoke();
+            if (!JudgeCondition(t)) return BevStatus.FAILURE;
+            if (m_ActionHandle != null) return m_ActionHandle.Invoke(t);
             return BevStatus.FAILURE;
         }
     }

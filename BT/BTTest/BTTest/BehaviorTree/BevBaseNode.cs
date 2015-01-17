@@ -2,9 +2,9 @@
 
 namespace BehaviorTreeLib
 {
-    public class BevBaseNode
+    public class BevBaseNode<T>
     {
-        public BevCondition Condition;
+        public BevCondition<T> Condition;
         private static long m_IDCount;
         private long m_ID;
 
@@ -13,14 +13,14 @@ namespace BehaviorTreeLib
             m_ID = m_IDCount++;
         }
 
-        public virtual BevStatus Tick()
+        public virtual BevStatus Execute(Tick<T> t)
         {
             return BevStatus.FAILURE;
         }
 
-        protected bool JudgeCondition()
+        protected bool JudgeCondition(Tick<T> t)
         {
-            return Condition == null ? true : Condition.Judge();
+            return Condition == null ? true : Condition.Judge(t);
         }
 
 
