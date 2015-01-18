@@ -42,13 +42,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BehaviorTree\BehaviorTree.cs" />
-    <Compile Include="BehaviorTree\BevAction.cs" />
+    <Compile Include="BehaviorTree\Actions\BevAction.cs" />
     <Compile Include="BehaviorTree\BevBaseNode.cs" />
-    <Compile Include="BehaviorTree\BevCondition.cs" />
-    <Compile Include="BehaviorTree\BevParallel.cs" />
-    <Compile Include="BehaviorTree\BevSelector.cs" />
-    <Compile Include="BehaviorTree\BevSequence.cs" />
+    <Compile Include="BehaviorTree\Composites\BevMemSelector.cs" />
+    <Compile Include="BehaviorTree\Composites\BevMemSequence.cs" />
+    <Compile Include="BehaviorTree\Conditions\BevCondition.cs" />
+    <Compile Include="BehaviorTree\Composites\BevParallel.cs" />
+    <Compile Include="BehaviorTree\Composites\BevSelector.cs" />
+    <Compile Include="BehaviorTree\Composites\BevSequence.cs" />
     <Compile Include="BehaviorTree\BTDefinition.cs" />
+    <Compile Include="BehaviorTree\Decorators\Inverter.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="BehaviorTree\Utility\Blackboard.cs" />
@@ -57,6 +60,7 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

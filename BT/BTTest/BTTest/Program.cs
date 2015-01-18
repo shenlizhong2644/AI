@@ -20,19 +20,21 @@ namespace BTTest
             BehaviorTreeLib.BehaviorTree<TestClass> bt = new BehaviorTreeLib.BehaviorTree<TestClass>();
             bt.m_Root = new BehaviorTreeLib.BevSelector<TestClass>(new BehaviorTreeLib.BevAction<TestClass>(Say));
             BehaviorTreeLib.Blackboard blackBoard = new BehaviorTreeLib.Blackboard();
-
+            BehaviorTreeLib.BehaviorTree<TestClass> btt = new BehaviorTreeLib.BehaviorTree<TestClass>();
+            btt.m_Root = new BehaviorTreeLib.BevSelector<TestClass>(new BehaviorTreeLib.BevAction<TestClass>(Say));
             while (true)
             {
                 bt.Tick(null, blackBoard);
+                btt.Tick(null, blackBoard);
             }
 
         }
         public static BehaviorTreeLib.BevStatus Say(BehaviorTreeLib.Tick<TestClass> t)
         {
             int str=0;
-            str=t.m_BlackBoard.GetNodeMemory<int>("value", t.m_Tree.ID.ToString(),t.m_CurNode.ID.ToString());
+            str=t.m_BlackBoard.GetGlobalMemory<int>("value");
             System.Console.WriteLine(str);
-            t.m_BlackBoard.SetNodeMemory<int>("value", t.m_Tree.ID.ToString(),t.m_CurNode.ID.ToString(), ++str);
+            t.m_BlackBoard.SetGlobalMemory<int>("value", ++str);
             return BehaviorTreeLib.BevStatus.SUCCESS;
         }
     }
