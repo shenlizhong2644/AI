@@ -29,5 +29,23 @@ namespace BehaviorTreeLib
         {
             this.m_NodeList.Add(node);
         }
+
+        public void OpenNode(BevBaseNode<T> node)
+        {
+
+        }
+        public void TickNode(BevBaseNode<T> node)
+        {
+
+        }
+        public void CloseNode(BevBaseNode<T> node)
+        {
+
+        }
+        public void ExitNode(BevBaseNode<T> node)
+        {
+
+        }
+
     }
 }

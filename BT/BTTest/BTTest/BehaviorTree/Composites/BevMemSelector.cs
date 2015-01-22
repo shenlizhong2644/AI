@@ -16,7 +16,7 @@ namespace BehaviorTreeLib
             m_Childs = new List<BevBaseNode<T>>();
         }
 
-        public override BevStatus Execute(Tick<T> t)
+        public override BevStatus Tick(Tick<T> t)
         {
             t.m_CurNode = this;
             if (!JudgeCondition(t))

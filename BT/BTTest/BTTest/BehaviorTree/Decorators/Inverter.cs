@@ -20,7 +20,7 @@ namespace BehaviorTreeLib
         {
             m_Child = child;
         }
-        public override BevStatus Execute(Tick<T> t)
+        public override BevStatus Tick(Tick<T> t)
         {
             BevStatus status = m_Child.Execute(t);
             if (BevStatus.FAILURE == status)
