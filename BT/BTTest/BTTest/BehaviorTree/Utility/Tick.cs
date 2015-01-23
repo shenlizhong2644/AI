@@ -23,6 +23,7 @@ namespace BehaviorTreeLib
             m_Tree = null;
             m_Target = default(T);
             m_BlackBoard = null;
+            m_CurNode = null;
             m_NodeList = new List<BevBaseNode<T>>();
         }
         public void EnterNode(BevBaseNode<T> node)
@@ -32,7 +33,7 @@ namespace BehaviorTreeLib
 
         public void OpenNode(BevBaseNode<T> node)
         {
-
+            this.m_CurNode = node;
         }
         public void TickNode(BevBaseNode<T> node)
         {

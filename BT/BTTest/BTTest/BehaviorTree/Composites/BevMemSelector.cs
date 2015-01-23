@@ -18,7 +18,6 @@ namespace BehaviorTreeLib
 
         public override BevStatus Tick(Tick<T> t)
         {
-            t.m_CurNode = this;
             if (!JudgeCondition(t))
                 return BevStatus.FAILURE;
             int begin = t.m_BlackBoard.GetNodeMemory<int>("NextBegin", t.m_Tree.ID.ToString(), t.m_CurNode.ID.ToString());

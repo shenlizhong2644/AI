@@ -26,6 +26,7 @@ namespace BTTest
             {
                 bt.Tick(null, blackBoard);
                 btt.Tick(null, blackBoard);
+
             }
 
         }
