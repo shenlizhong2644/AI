@@ -36,8 +36,6 @@ namespace BehaviorTreeLib
 
         public override BevStatus Tick(Tick<T> t)
         {
-            if (!JudgeCondition(t))
-                return BevStatus.FAILURE;
             foreach (BevBaseNode<T> child in m_Childs)
             {
                 if (BevStatus.SUCCESS == child.Execute(t))

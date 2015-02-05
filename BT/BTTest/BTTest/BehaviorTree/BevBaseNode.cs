@@ -20,6 +20,8 @@ namespace BehaviorTreeLib
 
         public BevStatus Execute(Tick<T> t)
         {
+            if (!JudgeCondition(t))
+                return BevStatus.FAILURE;
             this._enter(t);
             if (!t.m_BlackBoard.GetNodeMemory<bool>("isOpen", t.m_Tree.ID.ToString(), this.ID.ToString()))
             {

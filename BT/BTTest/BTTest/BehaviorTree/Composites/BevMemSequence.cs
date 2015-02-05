@@ -16,16 +16,22 @@ namespace BehaviorTreeLib
         }
         public BevMemSequence()
         {
- 
+
         }
         public void AddChilds(params BevBaseNode<T>[] childs)
         {
             m_Childs.AddRange(childs);
         }
+        public override void Open(Tick<T> t)
+        {
+            t.m_BlackBoard.SetNodeMemory<int>("NextBegin", t.m_Tree.ID.ToString(), t.m_CurNode.ID.ToString(), 0);
+        }
+        public override void Close(Tick<T> t)
+        {
+            t.m_BlackBoard.RemoveNodeMemory<int>("NextBegin", t.m_Tree.ID.ToString(), t.m_CurNode.ID.ToString());
+        }
         public override BevStatus Tick(Tick<T> t)
         {
-            if (!JudgeCondition(t))
-                return BevStatus.FAILURE;
             int begin = t.m_BlackBoard.GetNodeMemory<int>("NextBegin", t.m_Tree.ID.ToString(), t.m_CurNode.ID.ToString());
             for (int i = begin; i < m_Childs.Count; i++)
             {

@@ -30,10 +30,18 @@ namespace BTTest
             }
 
         }
+        public class Say<T> : BehaviorTreeLib.BevBaseNode<T>
+        {
+            public override BehaviorTreeLib.BevStatus Tick(BehaviorTreeLib.Tick<T> t)
+            {
+                return BehaviorTreeLib.BevStatus.FAILURE;
+                //if()
+            }
+        }
         public static BehaviorTreeLib.BevStatus Say(BehaviorTreeLib.Tick<TestClass> t)
         {
-            int str=0;
-            str=t.m_BlackBoard.GetGlobalMemory<int>("value");
+            int str = 0;
+            str = t.m_BlackBoard.GetGlobalMemory<int>("value");
             System.Console.WriteLine(str);
             t.m_BlackBoard.SetGlobalMemory<int>("value", ++str);
             return BehaviorTreeLib.BevStatus.SUCCESS;

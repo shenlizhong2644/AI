@@ -18,7 +18,6 @@ namespace BehaviorTreeLib
 
         public override BevStatus Tick(Tick<T> t)
         {
-            t.m_CurNode = this;
             if (!JudgeCondition(t)) return BevStatus.FAILURE;
             if (m_ActionHandle != null) return m_ActionHandle.Invoke(t);
             return BevStatus.FAILURE;
